@@ -10,7 +10,5 @@ class CleanUpFile:
         return self
 
     def __exit__(self, exc_type, exc_value, traceback) -> None:
-        try:
+        if os.path.exists(self.filename):
             os.remove(self.filename)
-        except Exception as e:
-            print(f"Помилка під час видалення файлу: {e}")
